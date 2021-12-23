@@ -1,0 +1,19 @@
+.node:hover{
+    border:1px solid black;
+    border-radius: 5px;
+    display: flex;
+    width: fit-content;
+}
+
+.node{
+    padding: 10px;
+    width: fit-content;
+}
+
+.hierarchy:before {
+    content: "";
+    border-top: 2px solid black;
+    width: 15px;
+    margin-top: 10px;
+    margin-right: 5px;
+ }

@@ -1,26 +1,22 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-
   <span>File Structure</span>
+</div>
 
+<!-- Add Root Folder button -->
+<button class="button" (click)="addRootNode()">
+  Add folder to root
+</button>
+
+<!-- Tree view of file structure -->
+<div class="tree" *ngFor="let node of nodes; let i = index">
+  <tree-view [node]="node" (actions)="getNodeActions($event)"></tree-view>
 </div>
 
 
+<!-- new root node-->
+<add-node-input *ngIf="isNewNode" (actions)="getNodeActions($event)" [type]="'edit'"></add-node-input>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-

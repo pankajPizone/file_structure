@@ -1,0 +1,21 @@
+<!-- <div class="tree node" *ngFor="let node of nodes" (mouseover)="node.isActive=true"> -->
+<div style="display: flex;" class="node hierarchy" (mouseenter)="ishover=true" (mouseleave)="ishover=false">
+    <div class="child" >
+        <img src="assets/folder-open-regular.svg" *ngIf="node.type=='folder'" width="20" height="20" style="padding-right: 5px;cursor: pointer;" />
+        <img src="assets/file-regular.svg" *ngIf="node.type=='file'" width="20" height="20" style="padding-right: 5px;cursor: pointer;" />
+        {{node.name}}
+        <img src="assets/plus.png" *ngIf="node.type=='folder' && ishover" width="22" height="22"
+            style="padding-left: 10px;cursor: pointer;" (click)="addChildNode()" />
+        <img src="assets/trash.svg" *ngIf="ishover" width="20" height="20" style="padding-left: 5px;cursor: pointer;"
+            (click)="delete()" />
+    </div>
+
+</div>
+<!-- margin-left: 30px; -->
+<div *ngFor="let n of node.children; let i = index" style="padding-left: 30px;">
+    <!-- <div style="width: 28px;height: 25px;position: absolute;left:35px;border-left: 1px solid black;border-bottom: 1px solid black;"></div> -->
+    <tree-view [node]="n" [parentNode]="node"></tree-view>
+</div>
+<div class="hierarchy" style="padding-left: 25px; margin-top: -10px;" *ngIf="node.isActive">
+    <add-node-input (actions)="getNodeActions($event)" [type]="'select'"></add-node-input>
+</div>

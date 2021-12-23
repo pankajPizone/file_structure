@@ -1,0 +1,23 @@
+<!-- new root node-->
+<div [ngClass]="{'indicator':type=='select'}">
+<div class="newroot " *ngIf="node && type=='edit'">
+    <img src="assets/folder-open-regular.svg" *ngIf="node.type=='folder'" width="25" height="25" style="padding-right: 10px;" />
+    <img src="assets/file-regular.svg" *ngIf="node.type=='file'" width="25" height="25" style="padding-right: 10px;" />
+    <input [(ngModel)]="node.name" />
+    <button (click)="saveNode()" style="margin-left: 10px;width: 30px;padding: 0;height: 28px;border: 0;">
+        <img src="assets/add.png" width="100%" height="100%" style="padding-right: 10px;" />
+    </button>
+    <button (click)="cancelNode()" style="margin-left: 10px;width: 30px;">
+        <img src="assets/cancel.png" width="15" height="15" style="padding-right: 10px;" />
+    </button>
+</div>
+
+<div class="choosetype" *ngIf="node && type=='select'">
+    <button (click)="selectType('file')" style="margin-left: 10px;width: 45px;">
+        File
+     </button>
+    <button (click)="selectType('folder')" style="margin-left: 10px;width: 50px;">
+        Folder
+    </button>
+</div>
+</div>
